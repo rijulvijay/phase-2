@@ -1,0 +1,28 @@
+#include <vector>
+#include <iostream>
+#include<unordered_set>
+using namespace std;
+int main() {
+unordered_multiset<int> st;
+st.insert(5);
+st.insert(10);
+st.insert(7);
+st.insert(854);
+st.insert(95);
+st.insert(7);
+st.insert(90);
+for(int i:st){
+cout << i << " ";
+}
+cout << endl;
+if(st.find(915) != st.end()){
+cout << "found\n";
+}
+else
+cout << "Not found\n";
+st.erase(7);
+for(int i:st){
+cout << i << " ";
+}
+cout << endl;
+}
