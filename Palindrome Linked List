@@ -1,0 +1,27 @@
+class Solution {
+    ListNode* midNode(ListNode* head){
+    ListNode *slow = head, *fast=head;
+    while(fast!=nullptr && fast->next!=nullptr){
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    return slow;
+}
+public:
+    bool isPalindrome(ListNode* head) {
+        stack<ListNode*>st;
+        ListNode* mid = midNode(head);
+        while(mid!=nullptr){
+            st.push(mid);
+            mid = mid->next;
+        }
+        while(!st.empty()){
+            if(head->val !=st.top()->val){
+                return false;
+            }
+            head = head->next;
+            st.pop();
+        }
+        return true;
+    }
+};
