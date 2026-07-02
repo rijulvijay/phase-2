@@ -1,0 +1,19 @@
+class Solution {
+    void solve(vector<int> &arr, int i, int n, vector<vector<int>> &ans){
+        if(i==n){
+            ans.push_back(arr);
+            return;
+        }
+        for(int j=i; j<n; j++){
+            swap(arr[i],arr[j]);
+            solve(arr,i+1,n,ans);
+            swap(arr[i],arr[j]);
+        }
+    }
+public:
+    vector<vector<int>> permute(vector<int>& arr) {
+        vector<vector<int>> ans;
+        solve(arr,0,arr.size(),ans);
+        return ans;
+    }
+};
